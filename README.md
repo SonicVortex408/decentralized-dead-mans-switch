@@ -1,75 +1,22 @@
-# React + TypeScript + Vite
+💀 Dead Man's Switch (DMS)
+A trustless, client-side encrypted backup protocol on the Sepolia testnet.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌟 Features
+Client-Side Security: Zero-knowledge server architecture utilizing browser-native Web Crypto API (AES-256-GCM + PBKDF2) to encrypt secrets before they ever touch IPFS.
 
-Currently, two official plugins are available:
+Decentralized Storage: Immutable metadata and ciphertext pinning via Pinata IPFS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+On-Chain Automation: Trustless heartbeat monitoring and timed release logic deployed on Sepolia.
 
-## React Compiler
+Beneficiary Portal: Seamless recovery dashboard allowing verified beneficiaries to trigger releases and decrypt payloads locally.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🛠️ Tech Stack
+Frontend: React, TypeScript, Vite, Tailwind CSS, Shadcn UI
 
-## Expanding the ESLint configuration
+State & Auth: Supabase, TanStack Query
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Storage: Pinata IPFS API V3
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Cryptography: Web Crypto API (SubtleCrypto)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+Blockchain: Sepolia Testnet, Ethers.js / Wagmi
