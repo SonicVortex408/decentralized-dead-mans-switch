@@ -1,22 +1,21 @@
-💀 Dead Man's Switch (DMS)
-A trustless, client-side encrypted backup protocol on the Sepolia testnet.
+# Routes
 
-🌟 Features
-Client-Side Security: Zero-knowledge server architecture utilizing browser-native Web Crypto API (AES-256-GCM + PBKDF2) to encrypt secrets before they ever touch IPFS.
+TanStack Start uses **file-based routing**. Every `.tsx` file in this directory
+defines a route. Do **not** create `src/pages/`, `src/routes/_app/index.tsx`, or
+`app/layout.tsx` — those are Next.js / Remix conventions. The only root layout
+is `src/routes/__root.tsx`.
 
-Decentralized Storage: Immutable metadata and ciphertext pinning via Pinata IPFS.
+## Conventions
 
-On-Chain Automation: Trustless heartbeat monitoring and timed release logic deployed on Sepolia.
+| File | URL |
+| --- | --- |
+| `index.tsx` | `/` |
+| `about.tsx` | `/about` |
+| `users/index.tsx` | `/users` |
+| `users/$id.tsx` | `/users/:id` (dynamic — bare `$`, no curly braces) |
+| `posts/{-$category}.tsx` | `/posts/:category?` (optional segment) |
+| `files/$.tsx` | `/files/*` (splat — read via `_splat` param, never `*`) |
+| `_layout.tsx` | layout route (renders children via `<Outlet />`) |
+| `__root.tsx` | app shell — wraps every page; preserve `<Outlet />` |
 
-Beneficiary Portal: Seamless recovery dashboard allowing verified beneficiaries to trigger releases and decrypt payloads locally.
-
-🛠️ Tech Stack
-Frontend: React, TypeScript, Vite, Tailwind CSS, Shadcn UI
-
-State & Auth: Supabase, TanStack Query
-
-Storage: Pinata IPFS API V3
-
-Cryptography: Web Crypto API (SubtleCrypto)
-
-Blockchain: Sepolia Testnet, Ethers.js / Wagmi
+`routeTree.gen.ts` is auto-generated. Don't edit it by hand.
